@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button type="button">点击抽奖</button><br>
+		<span>抽奖次数：<span class="text">0次</span></span>
+	</body>
+	<script>
+		let btn = document.querySelector("button");
+		let text = document.querySelector(".text");
+		//1:中奖； 0:没中
+		let arr = [1,0,0,0,0,0,0,0,0];
+		//计数
+		let count = 0;
+		//随机数
+		let random = 0;
+		//开关
+		let flag = true;
+		
+		//点击抽奖
+		btn.onclick = ()=>{
+			if(flag){
+				flag = false;
+				count++;
+				text.innerText = count + "次";
+				random = parseInt(Math.random()*9);
+				if(count == 10){
+					random = 0
+				}
+				console.log(arr[random]);
+				flag = true;
+			}
+		}
+	</script>
+</html>
